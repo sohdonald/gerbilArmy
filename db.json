@@ -1,0 +1,32 @@
+{
+  "gerbilPrivates": [
+    {
+      "id": 0,
+      "name": "Cinnamon",
+      "age": 4,
+      "yearsServed": 3
+    },
+    {
+      "id": 1,
+      "name": "Peaches",
+      "age": 2,
+      "yearsServed": 1
+    }
+  ],
+  "gerbilCorporals": [
+    {
+      "id": 0,
+      "name": "Tuber",
+      "age": 6,
+      "yearsServed": 4
+    }
+  ],
+  "gerbilSergents": [
+    {
+      "id": 0,
+      "name": "Smash",
+      "age": 7,
+      "yearsServed": 5
+    }
+  ]
+}
