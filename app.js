@@ -4,7 +4,7 @@
  // call/invoke the function
 
 function postGPrivates(privateName, privateAge, privateYears) {
-  fetch("http://localhost:3000/gerbilPrivates/", {
+  fetch("http://localhost:3000/gerbilPrivates/"), {
     method: "POST",
     
     headers: {
@@ -21,7 +21,7 @@ function postGPrivates(privateName, privateAge, privateYears) {
       age: privateAge,
       yearsServed: privateYears,
     }),
-  })
+  }
     .then(function (response) {
       return response.json();
     })
@@ -61,20 +61,20 @@ function postGPrivates(privateName, privateAge, privateYears) {
         
         postGPrivates();
     })
+  })
 
     .catch(function (error) {
       document.body.append(error);
-    });
-}
+
+    })
+
+  }
+
+  
   //dry don't repeat yourself
   // tech art called this implementation
-  // tech act use dry to reduce mouse clicks
+  // tech act use dry to reduce mouse click
 
-
-
-function patchGPrivates() {
-
-};
 
 // [] patch method makes changes or updates to object
 
