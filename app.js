@@ -31,16 +31,35 @@ function postGPrivates(privateName, privateAge, privateYears) {
     .then(function (object) {
       // with toytale lab, we were calling back a function
 
-      function newPrivate() {
-        const getId = object.id;
-        const getPrivateName = object.name;
-        const getPrivateAge = object.age;
-        const getPrivateYears = object.yearsServed;
-      }
-     
-      console.log(newPrivate);
-      document.body.append(newPrivate);
-
+      document
+      .getElementById("gerbil-private-form")
+      .addEventListener("submit", function (e) {
+        e.preventDefault();
+        console.log(e.target);
+        // name, age, yearsServed render
+        // use querySelector to get 3 inputs
+        // use querySelector to get privateName input
+        const addPrivName = document.querySelector("#gerbilPrivateName")
+        // data type of addPrivName is html input
+        // we want the private's name from this input element
+        const postPrivName = addPrivName.value;
+        // the user input is not showing in db.json
+    
+        const addPrivAge = document.querySelector("#gerbilPrivateAge")
+        // we want the private's age from this input element
+        // something is wrong with addPrivAge.value
+        const postPrivAge = addPrivAge.value;
+    
+        const addPrivYears = document.querySelector("#gerbilPrivateYears")
+        // we want the private's yearsServed from this input element
+        // something is wrong with .value
+        const postPrivYears = addPrivYears.value;
+    
+        console.log(postPrivName);
+        //console.log(postPrivAge);
+        // we need something to get access to the user input
+        
+        postGPrivates();
     })
 
     .catch(function (error) {
@@ -51,24 +70,6 @@ function postGPrivates(privateName, privateAge, privateYears) {
   // tech art called this implementation
   // tech act use dry to reduce mouse clicks
 
-document
-  .getElementById("gerbil-private-form")
-  .addEventListener("submit", function (e) {
-    e.preventDefault();
-    console.log(e.target);
-    // name, age, yearsServed render
-    // use querySelector to get 3 inputs
-    // use querySelector to get privateName input
-    const addPrivName = document.querySelector("#gerbilPrivateName")
-    // data type of addPrivName is html input
-    // we want the private's name from this input element
-    const postPrivName = addPrivName.value;
-    console.log(postPrivName);
-    console.log(addPrivName);
-    // we need something to get access to the user input
-    // 
-    postGPrivates();
-  });
 
 
 function patchGPrivates() {
