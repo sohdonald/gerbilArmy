@@ -4,6 +4,30 @@
 // call/invoke the function
 // with toytale lab, we were calling back a function
 
+// fetch data from db.json
+//const fetchGerbilP = fetch("http://localhost:3000/gerbilPrivates/")
+// fetchGerbilP will have a promise object value
+//console.log(fetchGerbilP);
+  // fetch returns promise, promise is object data type
+  /* Js uses promises to represent completion or failure
+  of asynchronous operation*/
+  // promises have 3 states, pending, fulfilled, and rejected
+  //pending is initial state, determined later
+  // fulfilled is state that meets what the code requested
+  // rejected does not meet the request
+
+  /* Asynchronous programming is a way to perform
+  a long-running task while other parts of the 
+  program are running
+  */
+
+  // trying to get data from gerbilPrivate object list
+  
+//fetch request first, 
+const fetchGerbilP = fetch("http://localhost:3000/gerbilPrivates/")
+ .then((response) => response.json())
+ .then((data) => console.log(data))
+
 function postGPrivates(privateName, privateAge, privateYears) {
   fetch("http://localhost:3000/gerbilPrivates/", {
     method: "POST",
@@ -50,14 +74,13 @@ function postGPrivates(privateName, privateAge, privateYears) {
         //console log is not working
         // we need something to get access to the user input
   
-    }) // the submit ends here
+    }) // the second .then ends here
 
 
     
     .catch(function (error) {
       document.body.append(error);
-    })
-    //this ends .catch
+    }) //this ends .catch
 
   } //function postGPrivates ends here
 
