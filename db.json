@@ -19,8 +19,12 @@
       "id": 2
     },
     {
+      "name": "Peanut",
+      "age": "4",
+      "yearsServed": "5",
       "id": 3
     }
+    
   ],
   "gerbilCorporals": [
     {
