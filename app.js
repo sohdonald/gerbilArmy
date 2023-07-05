@@ -31,18 +31,21 @@ fetch("http://localhost:3000/gerbilPrivates/")
     // display data in DOM
     //display the names of the gerbils in DOM
     data.forEach(element => {
-      console.log(element)
-      const privateName = element.name
-      console.log(privateName)
-      const gerbilPList = document.createElement("li")
-      gerbilPList.textContent = privateName
-      showGerbilPrivates.append(gerbilPList)
-
-      gerbilPList.addEventListener("click", () => {
-        gerbilPList.style.color = "cyan";
-      })
+     gerbilPNames(element)
     });
   });
+function gerbilPNames (element) {
+  const privateName = element.name
+  console.log(privateName)
+  const gerbilPList = document.createElement("li")
+  gerbilPList.textContent = privateName
+  showGerbilPrivates.append(gerbilPList)
+
+  gerbilPList.addEventListener("click", () => {
+    gerbilPList.style.color = "cyan";
+  })
+}
+
 
 function postGPrivates(privateName, privateAge, privateYears) {
   fetch("http://localhost:3000/gerbilPrivates/", {
@@ -69,7 +72,7 @@ function postGPrivates(privateName, privateAge, privateYears) {
 
     .then((newPrivate) => {
       const gerbilPrivatesContainer = document.querySelector("#gerbilPrivates");
-      const gerbilParagraph = document.createElement("p");
+      //const gerbilParagraph = document.createElement("p");
       gerbilParagraph.textContent = newPrivate.name;
       gerbilPrivatesContainer.append(gerbilParagraph);
     }); // the second .then ends here
