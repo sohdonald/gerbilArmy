@@ -10,7 +10,14 @@
   <body>
     <h1>Gerbil Army</h1>
     <form id="gerbil-private-form">
-      <!--  -->
+      <!-- let's be able to post a gerbil of a different rank -->
+      
+      <label>Rank:</label>
+      <select id="gerbilRank">
+        <option value="Private">Private</option>
+        <option value="Corporal">Corporal</option>
+        <option value="Sergent">Sergent</option>
+      </select>
       <label>
         Gerbil Private:
         <input type="text" name="gerbilPrivateName" id="gerbilPrivateName" />
