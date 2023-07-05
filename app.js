@@ -37,8 +37,11 @@ fetch("http://localhost:3000/gerbilPrivates/")
       const gerbilPList = document.createElement("li")
       gerbilPList.textContent = privateName
       showGerbilPrivates.append(gerbilPList)
-    });
 
+      gerbilPList.addEventListener("click", () => {
+        gerbilPList.style.color = "cyan";
+      })
+    });
   });
 
 function postGPrivates(privateName, privateAge, privateYears) {
@@ -103,6 +106,9 @@ privateForm.addEventListener("submit", function (e) {
     newPrivate.gerbilPrivateYears
   );
 }); // addEventListener ends here()
+
+// change the name's color to red
+
 
 // display all gerbil names
 
