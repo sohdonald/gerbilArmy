@@ -37,10 +37,16 @@
       "id": 5
     },
     {
-      "name": "Sally",
+      "name": "Munchy",
       "age": "",
       "yearsServed": "",
       "id": 6
+    },
+    {
+      "name": "Kissy",
+      "age": "",
+      "yearsServed": "",
+      "id": 7
     }
   ],
   "gerbilCorporals": [

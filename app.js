@@ -23,6 +23,8 @@
 
 // trying to get data from gerbilPrivate object list
 const showGerbilPrivates = document.querySelector("#gerbilPrivates")
+let gerbilPList
+
 //fetch request first,
 fetch("http://localhost:3000/gerbilPrivates/")
   .then((response) => response.json())
@@ -37,7 +39,7 @@ fetch("http://localhost:3000/gerbilPrivates/")
 function gerbilPNames (element) {
   const privateName = element.name
   console.log(privateName)
-  const gerbilPList = document.createElement("li")
+  let gerbilPList = document.createElement("li")
   gerbilPList.textContent = privateName
   showGerbilPrivates.append(gerbilPList)
 
@@ -71,10 +73,7 @@ function postGPrivates(privateName, privateAge, privateYears) {
     // second .then is important
 
     .then((newPrivate) => {
-      const gerbilPrivatesContainer = document.querySelector("#gerbilPrivates");
-      //const gerbilParagraph = document.createElement("p");
-      gerbilParagraph.textContent = newPrivate.name;
-      gerbilPrivatesContainer.append(gerbilParagraph);
+    gerbilPNames(newPrivate)
     }); // the second .then ends here
 
   // with toytale lab, we were calling back a function
