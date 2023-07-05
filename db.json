@@ -23,8 +23,25 @@
       "age": "4",
       "yearsServed": "5",
       "id": 3
+    },
+    {
+      "name": "Roy",
+      "age": "6",
+      "yearsServed": "3",
+      "id": 4
+    },
+    {
+      "name": "Lai",
+      "age": "5",
+      "yearsServed": "3",
+      "id": 5
+    },
+    {
+      "name": "Sally",
+      "age": "",
+      "yearsServed": "",
+      "id": 6
     }
-    
   ],
   "gerbilCorporals": [
     {

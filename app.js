@@ -22,11 +22,24 @@
   */
 
 // trying to get data from gerbilPrivate object list
-
+const showGerbilPrivates = document.querySelector("#gerbilPrivates")
 //fetch request first,
-const fetchGerbilP = fetch("http://localhost:3000/gerbilPrivates/")
+fetch("http://localhost:3000/gerbilPrivates/")
   .then((response) => response.json())
-  .then((data) => console.log(data));
+  .then((data) => {
+    console.log(data);
+    // display data in DOM
+    //display the names of the gerbils in DOM
+    data.forEach(element => {
+      console.log(element)
+      const privateName = element.name
+      console.log(privateName)
+      const gerbilPList = document.createElement("li")
+      gerbilPList.textContent = privateName
+      showGerbilPrivates.append(gerbilPList)
+    });
+
+  });
 
 function postGPrivates(privateName, privateAge, privateYears) {
   fetch("http://localhost:3000/gerbilPrivates/", {
@@ -56,25 +69,25 @@ function postGPrivates(privateName, privateAge, privateYears) {
       const gerbilParagraph = document.createElement("p");
       gerbilParagraph.textContent = newPrivate.name;
       gerbilPrivatesContainer.append(gerbilParagraph);
-    }) // the second .then ends here
+    }); // the second .then ends here
 
-    // with toytale lab, we were calling back a function
-    // function newPrivate() {
-    // what does newPrivate do? Do we even need it?
-    //   const getId = object.id;
-    //   const getPrivateName = object.name;
-    //   const getPrivateAge = object.age;
-    //   const getPrivateYears = object.yearsServed;
-    // }
+  // with toytale lab, we were calling back a function
+  // function newPrivate() {
+  // what does newPrivate do? Do we even need it?
+  //   const getId = object.id;
+  //   const getPrivateName = object.name;
+  //   const getPrivateAge = object.age;
+  //   const getPrivateYears = object.yearsServed;
+  // }
 
-    // console.log(newPrivate);
-    // document.body.append(newPrivate);
-    //console log is not working
-    // we need something to get access to the user input
+  // console.log(newPrivate);
+  // document.body.append(newPrivate);
+  //console log is not working
+  // we need something to get access to the user input
 
-    .catch(function (error) {
-      document.body.append(error);
-    }); //this ends .catch
+  //  .catch(function (error) {
+  //    document.body.append(error);
+  //  }); //this ends .catch
 } //function postGPrivates ends here
 
 const privateForm = document.getElementById("gerbil-private-form");
@@ -82,7 +95,7 @@ privateForm.addEventListener("submit", function (e) {
   e.preventDefault();
   // what is e.target doing?
   const newPrivate = Object.fromEntries(new FormData(e.target));
-  console.log(FormData(e.target));
+  //console.log(FormData(e.target));
 
   postGPrivates(
     newPrivate.gerbilPrivateName,
@@ -90,6 +103,9 @@ privateForm.addEventListener("submit", function (e) {
     newPrivate.gerbilPrivateYears
   );
 }); // addEventListener ends here()
+
+// display all gerbil names
+
 
 // we want to post data from newPrivate
 // name, age, yearsServed render
