@@ -95,17 +95,23 @@ function postGPrivates(privateName, privateAge, privateYears) {
         }); // the second .then ends here
 } //function postGCorporals ends here
 
-const privateForm = document.getElementById("gerbil-private-form");
-privateForm.addEventListener("submit", function (e) {
+const recruitForm = document.getElementById("gerbil-private-form");
+recruitForm.addEventListener("submit", function (e) {
   e.preventDefault();
   // what is e.target doing?
-  const newPrivate = Object.fromEntries(new FormData(e.target));
+  const newRecruit = Object.fromEntries(new FormData(e.target));
   //console.log(FormData(e.target));
 
   postGPrivates(
-    newPrivate.gerbilPrivateName,
-    newPrivate.gerbilPrivateAge,
-    newPrivate.gerbilPrivateYears
+    newRecruit.gerbilPrivateName,
+    newRecruit.gerbilPrivateAge,
+    newRecruit.gerbilPrivateYears
+  );
+
+  postGCorporals(
+    newRecruit.gerbilPrivateName,
+    newRecruit.gerbilPrivateAge,
+    newRecruit.gerbilPrivateYears
   );
 }); // addEventListener ends here()
 
