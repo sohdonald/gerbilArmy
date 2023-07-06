@@ -22,8 +22,8 @@
   */
 
 // trying to get data from gerbilPrivate object list
-const showGerbilPrivates = document.querySelector("#gerbilPrivates")
-let gerbilPList
+const showGerbilPrivates = document.querySelector("#gerbilPrivates");
+let gerbilPList;
 
 //fetch request first,
 fetch("http://localhost:3000/gerbilPrivates/")
@@ -32,22 +32,21 @@ fetch("http://localhost:3000/gerbilPrivates/")
     console.log(data);
     // display data in DOM
     //display the names of the gerbils in DOM
-    data.forEach(element => {
-     gerbilPNames(element)
+    data.forEach((element) => {
+      gerbilPNames(element);
     });
   });
-function gerbilPNames (element) {
-  const privateName = element.name
-  console.log(privateName)
-  let gerbilPList = document.createElement("li")
-  gerbilPList.textContent = privateName
-  showGerbilPrivates.append(gerbilPList)
+function gerbilPNames(element) {
+  const privateName = element.name;
+  console.log(privateName);
+  let gerbilPList = document.createElement("li");
+  gerbilPList.textContent = privateName;
+  showGerbilPrivates.append(gerbilPList);
 
   gerbilPList.addEventListener("click", () => {
     gerbilPList.style.color = "cyan";
-  })
+  });
 }
-
 
 function postGPrivates(privateName, privateAge, privateYears) {
   fetch("http://localhost:3000/gerbilPrivates/", {
@@ -69,57 +68,62 @@ function postGPrivates(privateName, privateAge, privateYears) {
     }) //first .then ends here
     // second .then is important
     .then((newPrivate) => {
-    gerbilPNames(newPrivate)
+      gerbilPNames(newPrivate);
     }); // the second .then ends here
-  } // postGPrivates ends
+} // postGPrivates ends
 
-    function postGCorporals(corporalName, corporalAge, corporalYears) {
-      fetch("http://localhost:3000/gerbilCorporals/", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
-        body: JSON.stringify({
-          name: corporalName,
-          age: corporalAge,
-          yearsServed: corporalYears,
-        }),
-      }) //this ends the fetch
-        .then(function (response) {
-          return response.json();
-        }) //first .then ends here
-        // second .then is important
-        .then((newCorporal) => {
-        gerbilCNames(newCorporal)
-        }); // the second .then ends here
+function postGCorporals(corporalName, corporalAge, corporalYears) {
+  fetch("http://localhost:3000/gerbilCorporals/", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+    },
+    body: JSON.stringify({
+      name: corporalName,
+      age: corporalAge,
+      yearsServed: corporalYears,
+    }),
+  }) //this ends the fetch
+    .then(function (response) {
+      return response.json();
+    }) //first .then ends here
+    // second .then is important
+    .then((newCorporal) => {
+      gerbilCNames(newCorporal);
+    }); // the second .then ends here
 } //function postGCorporals ends here
 
-const recruitForm = document.getElementById("gerbil-private-form");
+const recruitForm = document.getElementById("recruit-form");
 recruitForm.addEventListener("submit", function (e) {
   e.preventDefault();
   // what is e.target doing?
   const newRecruit = Object.fromEntries(new FormData(e.target));
   //console.log(FormData(e.target));
 
-  postGPrivates(
-    newRecruit.gerbilPrivateName,
-    newRecruit.gerbilPrivateAge,
-    newRecruit.gerbilPrivateYears
-  );
+  // let's try switch
+  switch (recruitForm) {
+    case "postGPrivate":
+      postGPrivates(
+        newRecruit.gerbilPrivateName,
+        newRecruit.gerbilPrivateAge,
+        newRecruit.gerbilPrivateYears
+      );
+      break;
 
-  postGCorporals(
-    newRecruit.gerbilPrivateName,
-    newRecruit.gerbilPrivateAge,
-    newRecruit.gerbilPrivateYears
-  );
+    case "postGCorporal":
+      postGCorporals(
+        newRecruit.gerbilPrivateName,
+        newRecruit.gerbilPrivateAge,
+        newRecruit.gerbilPrivateYears
+      );
+      break;
+  }
 }); // addEventListener ends here()
 
 // change the name's color to red
 
-
 // display all gerbil names
-
 
 // we want to post data from newPrivate
 // name, age, yearsServed render
