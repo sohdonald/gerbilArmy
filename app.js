@@ -56,10 +56,8 @@ function postGPrivates(privateName, privateAge, privateYears) {
       "Content-Type": "application/json",
       Accept: "application/json",
     },
-
     //.stringify transforms the object into strings
     // converts a JavaScript value to a JSON string
-
     body: JSON.stringify({
       name: privateName,
       age: privateAge,
@@ -69,12 +67,11 @@ function postGPrivates(privateName, privateAge, privateYears) {
     .then(function (response) {
       return response.json();
     }) //first .then ends here
-
     // second .then is important
-
     .then((newPrivate) => {
     gerbilPNames(newPrivate)
     }); // the second .then ends here
+  } // postGPrivates ends
 
     function postGCorporals(corporalName, corporalAge, corporalYears) {
       fetch("http://localhost:3000/gerbilCorporals/", {
@@ -83,10 +80,6 @@ function postGPrivates(privateName, privateAge, privateYears) {
           "Content-Type": "application/json",
           Accept: "application/json",
         },
-    
-        //.stringify transforms the object into strings
-        // converts a JavaScript value to a JSON string
-    
         body: JSON.stringify({
           name: corporalName,
           age: corporalAge,
@@ -96,31 +89,11 @@ function postGPrivates(privateName, privateAge, privateYears) {
         .then(function (response) {
           return response.json();
         }) //first .then ends here
-    
         // second .then is important
-    
         .then((newCorporal) => {
         gerbilCNames(newCorporal)
         }); // the second .then ends here
-
-  // with toytale lab, we were calling back a function
-  // function newPrivate() {
-  // what does newPrivate do? Do we even need it?
-  //   const getId = object.id;
-  //   const getPrivateName = object.name;
-  //   const getPrivateAge = object.age;
-  //   const getPrivateYears = object.yearsServed;
-  // }
-
-  // console.log(newPrivate);
-  // document.body.append(newPrivate);
-  //console log is not working
-  // we need something to get access to the user input
-
-  //  .catch(function (error) {
-  //    document.body.append(error);
-  //  }); //this ends .catch
-} //function postGPrivates ends here
+} //function postGCorporals ends here
 
 const privateForm = document.getElementById("gerbil-private-form");
 privateForm.addEventListener("submit", function (e) {
