@@ -36,6 +36,7 @@ fetch("http://localhost:3000/gerbilPrivates/")
       gerbilPNames(element);
     });
   });
+
 function gerbilPNames(element) {
   const privateName = element.name;
   console.log(privateName);
@@ -94,30 +95,55 @@ function postGCorporals(corporalName, corporalAge, corporalYears) {
     }); // the second .then ends here
 } //function postGCorporals ends here
 
+function postGSergents(sergentName, sergentAge, sergentYears) {
+  fetch("http://localhost:3000/gerbilSergents/", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+    },
+    body: JSON.stringify({
+      name: sergentName,
+      age: sergentAge,
+      yearsServed: sergentYears,
+    }),
+  }) //this ends the fetch
+    .then(function (response) {
+      return response.json();
+    }) //first .then ends here
+    // second .then is important
+    .then((newSergent) => {
+      gerbilSNames(newSergent);
+    }); // the second .then ends here
+} //function postGCorporals ends here
+
 const recruitForm = document.getElementById("recruit-form");
+const getRank = document.querySelector("#gerbilRank");
 recruitForm.addEventListener("submit", function (e) {
   e.preventDefault();
   // what is e.target doing?
   const newRecruit = Object.fromEntries(new FormData(e.target));
   //console.log(FormData(e.target));
 
-  // let's try switch
-  switch (recruitForm) {
-    case "postGPrivate":
-      postGPrivates(
-        newRecruit.gerbilPrivateName,
-        newRecruit.gerbilPrivateAge,
-        newRecruit.gerbilPrivateYears
-      );
-      break;
-
-    case "postGCorporal":
-      postGCorporals(
-        newRecruit.gerbilPrivateName,
-        newRecruit.gerbilPrivateAge,
-        newRecruit.gerbilPrivateYears
-      );
-      break;
+  // actually, an if/else statement should do the job
+  if (getRank.option.value === "Private") {
+    postGPrivates(
+      newRecruit.gerbilPrivateName,
+      newRecruit.gerbilPrivateAge,
+      newRecruit.gerbilPrivateYears
+    );
+  } else if (getRank.option.value === "Corporal") {
+    postGCorporals(
+      newRecruit.gerbilPrivateName,
+      newRecruit.gerbilPrivateAge,
+      newRecruit.gerbilPrivateYears
+    );
+  } else {
+    postGSergents(
+      newRecruit.gerbilPrivateName,
+      newRecruit.gerbilPrivateAge,
+      newRecruit.gerbilPrivateYears
+    );
   }
 }); // addEventListener ends here()
 
