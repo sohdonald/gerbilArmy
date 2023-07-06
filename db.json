@@ -47,6 +47,12 @@
       "age": "",
       "yearsServed": "",
       "id": 7
+    },
+    {
+      "name": "Milk",
+      "age": "",
+      "yearsServed": "",
+      "id": 8
     }
   ],
   "gerbilCorporals": [
@@ -55,6 +61,18 @@
       "name": "Tuber",
       "age": 6,
       "yearsServed": 4
+    },
+    {
+      "name": "Sally",
+      "age": "",
+      "yearsServed": "",
+      "id": 1
+    },
+    {
+      "name": "Milk",
+      "age": "",
+      "yearsServed": "",
+      "id": 2
     }
   ],
   "gerbilSergents": [
@@ -63,6 +81,18 @@
       "name": "Smash",
       "age": 7,
       "yearsServed": 5
+    },
+    {
+      "name": "Sally",
+      "age": "",
+      "yearsServed": "",
+      "id": 1
+    },
+    {
+      "name": "Peanut",
+      "age": "",
+      "yearsServed": "",
+      "id": 2
     }
   ]
 }

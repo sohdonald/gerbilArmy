@@ -22,9 +22,11 @@
   */
 
 // trying to get data from gerbilPrivate object list
+//queryselector are getting html elements with the id name
 const showGerbilPrivates = document.querySelector("#gerbilPrivates");
 const showGerbilCorporals = document.querySelector("#gerbilCorporals");
 const showGerbilSergents = document.querySelector("#gerbilSergents");
+
 let gerbilList;
 
 //fetch request first,
@@ -162,20 +164,20 @@ function postGSergents(sergentName, sergentAge, sergentYears) {
 
 const recruitForm = document.getElementById("recruit-form");
 const getRank = document.querySelector("#gerbilRank");
+
 recruitForm.addEventListener("submit", function (e) {
   e.preventDefault();
   // what is e.target doing?
   const newRecruit = Object.fromEntries(new FormData(e.target));
   //console.log(FormData(e.target));
-
   // actually, an if/else statement should do the job
-  if (getRank.option.value === "Private") {
+  if (getRank.value === "Private") {
     postGPrivates(
       newRecruit.gerbilPrivateName,
       newRecruit.gerbilPrivateAge,
       newRecruit.gerbilPrivateYears
     );
-  } else if (getRank.option.value === "Corporal") {
+  } else if (getRank.value === "Corporal") {
     postGCorporals(
       newRecruit.gerbilPrivateName,
       newRecruit.gerbilPrivateAge,
