@@ -24,8 +24,8 @@
 // trying to get data from gerbilPrivate object list
 const showGerbilPrivates = document.querySelector("#gerbilPrivates");
 const showGerbilCorporals = document.querySelector("#gerbilCorporals");
-const showGerbilSergents = document.querySelector("#gerbilSergents")
-let gerbilPList;
+const showGerbilSergents = document.querySelector("#gerbilSergents");
+let gerbilList;
 
 //fetch request first,
 fetch("http://localhost:3000/gerbilPrivates/")
@@ -39,41 +39,55 @@ fetch("http://localhost:3000/gerbilPrivates/")
     }); //forEach end
   }); // 2nd .then end
 
+fetch("http://localhost:3000/gerbilCorporals/")
+  .then((response) => response.json())
+  .then((data) => {
+    console.log(data);
+    // display data in DOM
+    //display the names of the gerbils in DOM
+    data.forEach((element) => {
+      gerbilCNames(element);
+    }); //forEach end
+  }); // 2nd .then end
+
 function gerbilPNames(element) {
   const privateName = element.name;
   console.log(privateName);
-  let gerbilPList = document.createElement("li");
-  gerbilPList.textContent = privateName;
-  showGerbilPrivates.append(gerbilPList);
+  let gerbilList = document.createElement("li");
+  gerbilList.textContent = privateName;
+  showGerbilPrivates.append(gerbilList);
+  gerbilList.addEventListener("click", () => {
+    gerbilList.style.color = "cyan";
+  });
 } //gerbilPNames end
 
 function gerbilCNames(element) {
-    const corporalName = element.name;
-    console.log(corporalName);
-    gerbilPList.textContent = corporalName;
-    showGerbilCorporals.append(gerbilPList);
+  const corporalName = element.name;
+  console.log(corporalName);
+  let gerbilList = document.createElement("li");
+  gerbilList.textContent = corporalName;
+  showGerbilCorporals.append(gerbilList);
+  gerbilList.addEventListener("click", () => {
+    gerbilList.style.color = "purple";
+  })
 }
-  //showGerbilCorporals.append(gerbilPList);
-  //showGerbilSergents.append(gerbilPList)
+//showGerbilCorporals.append(gerbilPList);
+//showGerbilSergents.append(gerbilPList)
 
-  // can we add the corporals and sergeants too?
-  //lets give corporals a purple color when their name is clicked
-  gerbilPList.addEventListener("click", () => {
-    if (getRank.option.value === "Private") {
-      gerbilPList.style.color = "cyan";
-    } else if (getRank.option.value === "Corporal") {
-      gerbilPList.style.color = "purple";
-    } else {
-      gerbilPList.style.color = "gold";
-    }
-  });
+// can we add the corporals and sergeants too?
+//lets give corporals a purple color when their name is clicked
+// sergents can have gold
+// if (getRank.option.value === "Private") {
+//   gerbilPList.style.color = "cyan";
+// } else if (getRank.option.value === "Corporal") {
+//   gerbilPList.style.color = "purple";
+// } else {
+//   gerbilPList.style.color = "gold";
+// }
 
-  // sergents can have gold
-
-  // gerbilPList.addEventListener("click", () => {
-  //   gerbilPList.style.color = "cyan";
-  // });
-
+// gerbilPList.addEventListener("click", () => {
+//   gerbilPList.style.color = "cyan";
+// });
 
 function postGPrivates(privateName, privateAge, privateYears) {
   fetch("http://localhost:3000/gerbilPrivates/", {
