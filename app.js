@@ -23,6 +23,8 @@
 
 // trying to get data from gerbilPrivate object list
 const showGerbilPrivates = document.querySelector("#gerbilPrivates");
+const showGerbilCorporals = document.querySelector("#gerbilCorporals");
+const showGerbilSergents = document.querySelector("#gerbilSergents")
 let gerbilPList;
 
 //fetch request first,
@@ -34,8 +36,8 @@ fetch("http://localhost:3000/gerbilPrivates/")
     //display the names of the gerbils in DOM
     data.forEach((element) => {
       gerbilPNames(element);
-    });
-  });
+    }); //forEach end
+  }); // 2nd .then end
 
 function gerbilPNames(element) {
   const privateName = element.name;
@@ -44,10 +46,24 @@ function gerbilPNames(element) {
   gerbilPList.textContent = privateName;
   showGerbilPrivates.append(gerbilPList);
 
+  // can we add the corporals and sergeants too?
+  //lets give corporals a purple color when their name is clicked
   gerbilPList.addEventListener("click", () => {
-    gerbilPList.style.color = "cyan";
+    if (getRank.option.value === "Private") {
+      gerbilPList.style.color = "cyan";
+    } else if (getRank.option.value === "Corporal") {
+      gerbilPList.style.color = "purple";
+    } else {
+      gerbilPList.style.color = "gold";
+    }
   });
-}
+
+  // sergents can have gold
+
+  // gerbilPList.addEventListener("click", () => {
+  //   gerbilPList.style.color = "cyan";
+  // });
+} // gerbilPNames end
 
 function postGPrivates(privateName, privateAge, privateYears) {
   fetch("http://localhost:3000/gerbilPrivates/", {
