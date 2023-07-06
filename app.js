@@ -45,6 +45,16 @@ function gerbilPNames(element) {
   let gerbilPList = document.createElement("li");
   gerbilPList.textContent = privateName;
   showGerbilPrivates.append(gerbilPList);
+} //gerbilPNames end
+
+function gerbilCNames(element) {
+    const corporalName = element.name;
+    console.log(corporalName);
+    gerbilPList.textContent = corporalName;
+    showGerbilCorporals.append(gerbilPList);
+}
+  //showGerbilCorporals.append(gerbilPList);
+  //showGerbilSergents.append(gerbilPList)
 
   // can we add the corporals and sergeants too?
   //lets give corporals a purple color when their name is clicked
@@ -63,7 +73,7 @@ function gerbilPNames(element) {
   // gerbilPList.addEventListener("click", () => {
   //   gerbilPList.style.color = "cyan";
   // });
-} // gerbilPNames end
+
 
 function postGPrivates(privateName, privateAge, privateYears) {
   fetch("http://localhost:3000/gerbilPrivates/", {
