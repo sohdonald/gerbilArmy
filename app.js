@@ -43,10 +43,17 @@ fetch("http://localhost:3000/gerbilCorporals/")
   .then((response) => response.json())
   .then((data) => {
     console.log(data);
-    // display data in DOM
-    //display the names of the gerbils in DOM
     data.forEach((element) => {
       gerbilCNames(element);
+    }); //forEach end
+  }); // 2nd .then end
+
+fetch("http://localhost:3000/gerbilSergents/")
+  .then((response) => response.json())
+  .then((data) => {
+    console.log(data);
+    data.forEach((element) => {
+      gerbilSNames(element);
     }); //forEach end
   }); // 2nd .then end
 
@@ -69,25 +76,21 @@ function gerbilCNames(element) {
   showGerbilCorporals.append(gerbilList);
   gerbilList.addEventListener("click", () => {
     gerbilList.style.color = "purple";
-  })
-}
+  });
+} // gerbilCNames end
+
+function gerbilSNames(element) {
+  const sergentName = element.name;
+  console.log(sergentName);
+  let gerbilList = document.createElement("li");
+  gerbilList.textContent = sergentName;
+  showGerbilSergents.append(gerbilList);
+  gerbilList.addEventListener("click", () => {
+    gerbilList.style.color = "gold";
+  });
+} // gerbilCNames end
 //showGerbilCorporals.append(gerbilPList);
 //showGerbilSergents.append(gerbilPList)
-
-// can we add the corporals and sergeants too?
-//lets give corporals a purple color when their name is clicked
-// sergents can have gold
-// if (getRank.option.value === "Private") {
-//   gerbilPList.style.color = "cyan";
-// } else if (getRank.option.value === "Corporal") {
-//   gerbilPList.style.color = "purple";
-// } else {
-//   gerbilPList.style.color = "gold";
-// }
-
-// gerbilPList.addEventListener("click", () => {
-//   gerbilPList.style.color = "cyan";
-// });
 
 function postGPrivates(privateName, privateAge, privateYears) {
   fetch("http://localhost:3000/gerbilPrivates/", {
