@@ -76,6 +76,33 @@ function postGPrivates(privateName, privateAge, privateYears) {
     gerbilPNames(newPrivate)
     }); // the second .then ends here
 
+    function postGCorporals(corporalName, corporalAge, corporalYears) {
+      fetch("http://localhost:3000/gerbilCorporals/", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+    
+        //.stringify transforms the object into strings
+        // converts a JavaScript value to a JSON string
+    
+        body: JSON.stringify({
+          name: corporalName,
+          age: corporalAge,
+          yearsServed: corporalYears,
+        }),
+      }) //this ends the fetch
+        .then(function (response) {
+          return response.json();
+        }) //first .then ends here
+    
+        // second .then is important
+    
+        .then((newCorporal) => {
+        gerbilCNames(newCorporal)
+        }); // the second .then ends here
+
   // with toytale lab, we were calling back a function
   // function newPrivate() {
   // what does newPrivate do? Do we even need it?
