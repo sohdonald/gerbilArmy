@@ -66,7 +66,7 @@ function gerbilPNames(element) {
   gerbilList.textContent = privateName;
   showGerbilPrivates.append(gerbilList);
   gerbilList.addEventListener("click", () => {
-    gerbilList.style.color = "cyan";
+    gerbilList.style.color = "navy";
   });
 } //gerbilPNames end
 
@@ -88,7 +88,7 @@ function gerbilSNames(element) {
   gerbilList.textContent = sergentName;
   showGerbilSergents.append(gerbilList);
   gerbilList.addEventListener("click", () => {
-    gerbilList.style.color = "gold";
+    gerbilList.style.color = "brown";
   });
 } // gerbilCNames end
 //showGerbilCorporals.append(gerbilPList);
