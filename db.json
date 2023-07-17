@@ -3,18 +3,21 @@
     {
       "id": 0,
       "name": "Cinnamon",
+      "picture": "./gerbilPics/PrivImg/ghostBuck.png",
       "age": 4,
       "yearsServed": 3
     },
     {
       "id": 1,
       "name": "Peaches",
+      "picture": "./gerbilPics/PrivImg/littlePrit.png",
       "age": 2,
       "yearsServed": 1
     },
     {
       "name": "Smoochy",
       "age": 5,
+      "picture": "./gerbilPics/PrivImg/plaid.png",
       "yearsServed": 4,
       "id": 2
     },
@@ -99,6 +102,12 @@
       "age": "",
       "yearsServed": "",
       "id": 3
+    },
+    {
+      "name": "Coconuts",
+      "age": "",
+      "yearsServed": "",
+      "id": 4
     }
   ]
 }
