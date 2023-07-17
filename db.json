@@ -3,21 +3,21 @@
     {
       "id": 0,
       "name": "Cinnamon",
-      "picture": "./gerbilPics/PrivImg/ghostBuck.png",
+      "picture": "./gerbilPics/PrivImg/ghostBuck.svg",
       "age": 4,
       "yearsServed": 3
     },
     {
       "id": 1,
       "name": "Peaches",
-      "picture": "./gerbilPics/PrivImg/littlePrit.png",
+      "picture": "./gerbilPics/PrivImg/littlePrit.svg",
       "age": 2,
       "yearsServed": 1
     },
     {
       "name": "Smoochy",
       "age": 5,
-      "picture": "./gerbilPics/PrivImg/plaid.png",
+      "picture": "./gerbilPics/PrivImg/plaid.svg",
       "yearsServed": 4,
       "id": 2
     },
@@ -63,6 +63,7 @@
       "id": 0,
       "name": "Tuber",
       "age": 6,
+      "picture": "./gerbilPics/PrivImg/chillBlue.svg",
       "yearsServed": 4
     },
     {
@@ -83,12 +84,14 @@
       "id": 0,
       "name": "Smash",
       "age": 7,
+      "picture": "./gerbilPics/PrivImg/lilacTiger.svg",
       "yearsServed": 5
     },
     {
       "name": "Sally",
-      "age": "",
-      "yearsServed": "",
+      "age": 8,
+      "picture": "./gerbilPics/PrivImg/pincHippo.svg",
+      "yearsServed": 5,
       "id": 1
     },
     {
