@@ -67,8 +67,19 @@ function gerbilPNames(element) {
   showGerbilPrivates.append(gerbilList);
   gerbilList.addEventListener("click", () => {
     gerbilList.style.color = "navy";
+    // display image on screen when name is clicked
+    gerbilImg();
   });
 } //gerbilPNames end
+
+
+const makeGerbilPic = createElement("img")
+function gerbilImg(gerbil) {
+  const getGerbilPic = gerbil.picture
+  makeGerbilPic.setAttribute("src", getGerbilPic)
+}
+  
+
 
 function gerbilCNames(element) {
   const corporalName = element.name;
