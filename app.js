@@ -13,10 +13,10 @@ fetch("http://localhost:3000/gerbilPrivates/")
     // display data in DOM
     //display the names of the gerbils in DOM
     data.forEach((element) => {
-      gerbilPNames(element);
+      //gerbilPNames(element);
+      renderGerbils(showGerbilPrivates, element)
     }); //forEach end
   }); // 2nd .then end
-
 fetch("http://localhost:3000/gerbilCorporals/")
   .then((response) => response.json())
   .then((data) => {
@@ -35,10 +35,38 @@ fetch("http://localhost:3000/gerbilSergents/")
     }); //forEach end
   }); // 2nd .then end
 
+function renderGerbils(html,element) {
+console.log(html)
+  let privateName = element.name;
+  let gerbilServed =element.yearsServed
+  let gerbilList = document.createElement("li");
+  let findAge = document.querySelector("#gerbilAge")
+  let findName = document.querySelector("#gerbilName")
+  let placeGerbilPic = document.querySelector("#gerbilPic")
+  let findServed = document.querySelector("#yearsServed")
+  gerbilList.textContent = privateName;
+  html.append(gerbilList);
+  gerbilList.addEventListener("click", () => {
+    gerbilList.style.color = "navy";
+    let ageNumber = element.age
+    findAge.textContent= ageNumber
+    findServed.textContent = gerbilServed
+    // display image on screen when name is clicked
+    let getGerbilPic = element.picture;
+    findName.textContent = privateName
+    placeGerbilPic.setAttribute("src", getGerbilPic);
+  });
+}
+
+//renderGerbils(showGerbilPrivates)
+//renderGerbils(showGerbilCorporals)
+
+
+
+
 function gerbilPNames(element) {
   const privateName = element.name;
   let gerbilServed =element.yearsServed
-  console.log(privateName);
   let gerbilList = document.createElement("li");
   let findAge = document.querySelector("#gerbilAge")
   let findName = document.querySelector("#gerbilName")
