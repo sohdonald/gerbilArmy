@@ -39,23 +39,22 @@ function gerbilPNames(element) {
   const privateName = element.name;
   console.log(privateName);
   let gerbilList = document.createElement("li");
+  let findAge = document.querySelector("#gerbilAge")
+  let findName = document.querySelector("#gerbilName")
+  let placeGerbilPic = document.querySelector("#gerbilPic")
   gerbilList.textContent = privateName;
   showGerbilPrivates.append(gerbilList);
   gerbilList.addEventListener("click", () => {
     gerbilList.style.color = "navy";
+    let ageNumber = element.age
+    findAge.textContent= ageNumber
     // display image on screen when name is clicked
     let getGerbilPic = element.picture;
-    makeGerbilPic.setAttribute("src", getGerbilPic);
-    makeGerbilPic.setAttribute("class", "gerbilImg");
-    gerbilList.append(makeGerbilPic);
-    let gerbilAge = element.age
-    getAge.textContent = gerbilAge
+    placeGerbilPic.setAttribute("src", getGerbilPic);
   });
   // display age
-  gerbilList.append(getAge)
 } //gerbilPNames end
-let getAge = document.createElement("h2")
-let makeGerbilPic = document.createElement("img");
+
 
 /* tried to make it it's own function, but looks like it's 
 either a scope or sync issue */
