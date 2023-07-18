@@ -69,19 +69,21 @@
       "id": 0,
       "name": "Tuber",
       "age": 6,
-      "picture": "./gerbilPics/PrivImg/chillBlue.svg",
+      "picture": "./gerbilPics/CorImg/fannyPac.svg",
       "yearsServed": 4
     },
     {
       "name": "Sally",
       "age": "",
       "yearsServed": "",
+      "picture": "./gerbilPics/CorImg/fodderFoot.svg",
       "id": 1
     },
     {
       "name": "Milk",
       "age": "",
       "yearsServed": "",
+      "picture": "./gerbilPics/CorImg/sprinter.svg",
       "id": 2
     }
   ],
