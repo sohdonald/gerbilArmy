@@ -68,16 +68,15 @@ function gerbilPNames(element) {
   gerbilList.addEventListener("click", () => {
     gerbilList.style.color = "navy";
     // display image on screen when name is clicked
-    gerbilImg();
+      const getGerbilPic = element.picture;
+      makeGerbilPic.setAttribute("src", getGerbilPic)
+      makeGerbilPic.setAttribute("class", "gerbilImg")
+      gerbilList.append(makeGerbilPic)
   });
 } //gerbilPNames end
 
+let makeGerbilPic = document.createElement("img")
 
-const makeGerbilPic = createElement("img")
-function gerbilImg(gerbil) {
-  const getGerbilPic = gerbil.picture
-  makeGerbilPic.setAttribute("src", getGerbilPic)
-}
   
 
 
