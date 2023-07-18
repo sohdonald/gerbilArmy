@@ -1,28 +1,4 @@
-// wait for user to submit form
-// function for user to submit form, or make patchGPrivates a callback
-// pass the privateName, privateAge and privateYears into the function
-// call/invoke the function
-// with toytale lab, we were calling back a function
 
-// fetch data from db.json
-//const fetchGerbilP = fetch("http://localhost:3000/gerbilPrivates/")
-// fetchGerbilP will have a promise object value
-//console.log(fetchGerbilP);
-// fetch returns promise, promise is object data type
-/* Js uses promises to represent completion or failure
-  of asynchronous operation*/
-// promises have 3 states, pending, fulfilled, and rejected
-//pending is initial state, determined later
-// fulfilled is state that meets what the code requested
-// rejected does not meet the request
-
-/* Asynchronous programming is a way to perform
-  a long-running task while other parts of the 
-  program are running
-  */
-
-// trying to get data from gerbilPrivate object list
-//queryselector are getting html elements with the id name
 const showGerbilPrivates = document.querySelector("#gerbilPrivates");
 const showGerbilCorporals = document.querySelector("#gerbilCorporals");
 const showGerbilSergents = document.querySelector("#gerbilSergents");
@@ -72,7 +48,13 @@ function gerbilPNames(element) {
     makeGerbilPic.setAttribute("src", getGerbilPic);
     makeGerbilPic.setAttribute("class", "gerbilImg");
     gerbilList.append(makeGerbilPic);
+    let gerbilAge = element.age
+    let getAge = document.createElement("h2")
+    console.log(getAge)
+    getAge.textContent = gerbilAge
+    gerbilList.append(getAge)
   });
+  // display age
 } //gerbilPNames end
 
 let makeGerbilPic = document.createElement("img");
