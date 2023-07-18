@@ -37,19 +37,24 @@ fetch("http://localhost:3000/gerbilSergents/")
 
 function gerbilPNames(element) {
   const privateName = element.name;
+  let gerbilServed =element.yearsServed
   console.log(privateName);
   let gerbilList = document.createElement("li");
   let findAge = document.querySelector("#gerbilAge")
   let findName = document.querySelector("#gerbilName")
   let placeGerbilPic = document.querySelector("#gerbilPic")
+  let findServed = document.querySelector("#yearsServed")
+  let findRank = document.querySelector("#gerbilRank")
   gerbilList.textContent = privateName;
   showGerbilPrivates.append(gerbilList);
   gerbilList.addEventListener("click", () => {
     gerbilList.style.color = "navy";
     let ageNumber = element.age
     findAge.textContent= ageNumber
+    findServed.textContent = gerbilServed
     // display image on screen when name is clicked
     let getGerbilPic = element.picture;
+    findName.textContent = privateName
     placeGerbilPic.setAttribute("src", getGerbilPic);
   });
   // display age
