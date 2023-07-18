@@ -3,14 +3,14 @@
     {
       "id": 0,
       "name": "Cinnamon",
-      "picture": "./gerbilPics/PrivImg/ghostBuck.svg",
+      "picture": "./gerbilPics/PrivImg/littlePrit.svg",
       "age": 4,
       "yearsServed": 3
     },
     {
       "id": 1,
       "name": "Peaches",
-      "picture": "./gerbilPics/PrivImg/littlePrit.svg",
+      "picture": "./gerbilPics/PrivImg/goaty.svg",
       "age": 2,
       "yearsServed": 1
     },
@@ -24,36 +24,42 @@
     {
       "name": "Peanut",
       "age": "4",
+      "picture": "./gerbilPics/PrivImg/cheesWheel.svg",
       "yearsServed": "5",
       "id": 3
     },
     {
       "name": "Roy",
       "age": "6",
+      "picture": "./gerbilPics/PrivImg/ghostBuck.svg",
       "yearsServed": "3",
       "id": 4
     },
     {
       "name": "Lai",
       "age": "5",
+      "picture": "./gerbilPics/PrivImg/xmasTree.svg",
       "yearsServed": "3",
       "id": 5
     },
     {
       "name": "Munchy",
       "age": "",
+      "picture": "./gerbilPics/PrivImg/lilacTiger.svg",
       "yearsServed": "",
       "id": 6
     },
     {
       "name": "Kissy",
       "age": "",
+      "picture": "./gerbilPics/PrivImg/redNosed.svg",
       "yearsServed": "",
       "id": 7
     },
     {
       "name": "Milk",
       "age": "",
+      "picture": "./gerbilPics/PrivImg/pincHippo.svg",
       "yearsServed": "",
       "id": 8
     }

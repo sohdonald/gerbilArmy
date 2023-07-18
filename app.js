@@ -27,7 +27,7 @@ const showGerbilPrivates = document.querySelector("#gerbilPrivates");
 const showGerbilCorporals = document.querySelector("#gerbilCorporals");
 const showGerbilSergents = document.querySelector("#gerbilSergents");
 
-let gerbilList;
+//let gerbilList;
 
 //fetch request first,
 fetch("http://localhost:3000/gerbilPrivates/")
@@ -68,17 +68,24 @@ function gerbilPNames(element) {
   gerbilList.addEventListener("click", () => {
     gerbilList.style.color = "navy";
     // display image on screen when name is clicked
-      const getGerbilPic = element.picture;
-      makeGerbilPic.setAttribute("src", getGerbilPic)
-      makeGerbilPic.setAttribute("class", "gerbilImg")
-      gerbilList.append(makeGerbilPic)
+    let getGerbilPic = element.picture;
+    makeGerbilPic.setAttribute("src", getGerbilPic);
+    makeGerbilPic.setAttribute("class", "gerbilImg");
+    gerbilList.append(makeGerbilPic);
   });
 } //gerbilPNames end
 
-let makeGerbilPic = document.createElement("img")
+let makeGerbilPic = document.createElement("img");
 
-  
+/* tried to make it it's own function, but looks like it's 
+either a scope or sync issue */
 
+//  function gerbilImg(element) {
+//   const getGerbilPic = element.picture;
+//   makeGerbilPic.setAttribute("src", getGerbilPic)
+//    makeGerbilPic.setAttribute("class", "gerbilImg")
+//    gerbilList.append(makeGerbilPic)
+//  }
 
 function gerbilCNames(element) {
   const corporalName = element.name;
