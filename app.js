@@ -49,14 +49,12 @@ function gerbilPNames(element) {
     makeGerbilPic.setAttribute("class", "gerbilImg");
     gerbilList.append(makeGerbilPic);
     let gerbilAge = element.age
-    let getAge = document.createElement("h2")
-    console.log(getAge)
     getAge.textContent = gerbilAge
-    gerbilList.append(getAge)
   });
   // display age
+  gerbilList.append(getAge)
 } //gerbilPNames end
-
+let getAge = document.createElement("h2")
 let makeGerbilPic = document.createElement("img");
 
 /* tried to make it it's own function, but looks like it's 

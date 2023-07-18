@@ -44,21 +44,21 @@
     },
     {
       "name": "Munchy",
-      "age": "",
+      "age": 3,
       "picture": "./gerbilPics/PrivImg/lilacTiger.svg",
       "yearsServed": "",
       "id": 6
     },
     {
       "name": "Kissy",
-      "age": "",
+      "age": "4",
       "picture": "./gerbilPics/PrivImg/redNosed.svg",
       "yearsServed": "",
       "id": 7
     },
     {
       "name": "Milk",
-      "age": "",
+      "age": 5,
       "picture": "./gerbilPics/PrivImg/pincHippo.svg",
       "yearsServed": "",
       "id": 8
