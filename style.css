@@ -14,4 +14,5 @@
 .gerbilImg {
   height: 6rem;
   width: auto;
+  float: right;
 }
