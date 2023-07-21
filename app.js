@@ -1,4 +1,3 @@
-
 const showGerbilPrivates = document.querySelector("#gerbilPrivates");
 const showGerbilCorporals = document.querySelector("#gerbilCorporals");
 const showGerbilSergents = document.querySelector("#gerbilSergents");
@@ -14,7 +13,7 @@ fetch("http://localhost:3000/gerbilPrivates/")
     //display the names of the gerbils in DOM
     data.forEach((element) => {
       //gerbilPNames(element);
-      renderGerbils(showGerbilPrivates, element)
+      renderGerbils(showGerbilPrivates, element);
     }); //forEach end
   }); // 2nd .then end
 fetch("http://localhost:3000/gerbilCorporals/")
@@ -22,7 +21,7 @@ fetch("http://localhost:3000/gerbilCorporals/")
   .then((data) => {
     console.log(data);
     data.forEach((element) => {
-      gerbilCNames(element);
+      renderGerbils(showGerbilCorporals, element);
     }); //forEach end
   }); // 2nd .then end
 
@@ -31,29 +30,29 @@ fetch("http://localhost:3000/gerbilSergents/")
   .then((data) => {
     console.log(data);
     data.forEach((element) => {
-      gerbilSNames(element);
+      renderGerbils(showGerbilSergents, element);
     }); //forEach end
   }); // 2nd .then end
 
-function renderGerbils(html,element) {
-console.log(html)
+function renderGerbils(html, element) {
+  console.log(html);
   let privateName = element.name;
-  let gerbilServed =element.yearsServed
+  let gerbilServed = element.yearsServed;
   let gerbilList = document.createElement("li");
-  let findAge = document.querySelector("#gerbilAge")
-  let findName = document.querySelector("#gerbilName")
-  let placeGerbilPic = document.querySelector("#gerbilPic")
-  let findServed = document.querySelector("#yearsServed")
+  let findAge = document.querySelector("#gerbilAge");
+  let findName = document.querySelector("#gerbilName");
+  let placeGerbilPic = document.querySelector("#gerbilPic");
+  let findServed = document.querySelector("#yearsServed");
   gerbilList.textContent = privateName;
   html.append(gerbilList);
   gerbilList.addEventListener("click", () => {
     gerbilList.style.color = "navy";
-    let ageNumber = element.age
-    findAge.textContent= ageNumber
-    findServed.textContent = gerbilServed
+    let ageNumber = element.age;
+    findAge.textContent = ageNumber;
+    findServed.textContent = gerbilServed;
     // display image on screen when name is clicked
     let getGerbilPic = element.picture;
-    findName.textContent = privateName
+    findName.textContent = privateName;
     placeGerbilPic.setAttribute("src", getGerbilPic);
   });
 }
@@ -71,27 +70,7 @@ either a scope or sync issue */
 //    gerbilList.append(makeGerbilPic)
 //  }
 
-function gerbilCNames(element) {
-  const corporalName = element.name;
-  console.log(corporalName);
-  let gerbilList = document.createElement("li");
-  gerbilList.textContent = corporalName;
-  showGerbilCorporals.append(gerbilList);
-  gerbilList.addEventListener("click", () => {
-    gerbilList.style.color = "purple";
-  });
-} // gerbilCNames end
 
-function gerbilSNames(element) {
-  const sergentName = element.name;
-  console.log(sergentName);
-  let gerbilList = document.createElement("li");
-  gerbilList.textContent = sergentName;
-  showGerbilSergents.append(gerbilList);
-  gerbilList.addEventListener("click", () => {
-    gerbilList.style.color = "brown";
-  });
-} // gerbilCNames end
 //showGerbilCorporals.append(gerbilPList);
 //showGerbilSergents.append(gerbilPList)
 
