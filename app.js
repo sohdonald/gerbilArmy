@@ -57,23 +57,6 @@ function renderGerbils(html, element) {
   });
 }
 
-//renderGerbils(showGerbilPrivates)
-//renderGerbils(showGerbilCorporals)
-
-/* tried to make it it's own function, but looks like it's 
-either a scope or sync issue */
-
-//  function gerbilImg(element) {
-//   const getGerbilPic = element.picture;
-//   makeGerbilPic.setAttribute("src", getGerbilPic)
-//    makeGerbilPic.setAttribute("class", "gerbilImg")
-//    gerbilList.append(makeGerbilPic)
-//  }
-
-
-//showGerbilCorporals.append(gerbilPList);
-//showGerbilSergents.append(gerbilPList)
-
 function postGPrivates(privateName, privateAge, privateYears) {
   fetch("http://localhost:3000/gerbilPrivates/", {
     method: "POST",
@@ -141,6 +124,27 @@ function postGSergents(sergentName, sergentAge, sergentYears) {
       gerbilSNames(newSergent);
     }); // the second .then ends here
 } //function postGCorporals ends here
+
+function addRecruit(url, nameGerbil, ageGerbil, servedYears) {
+  fetch(url, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+    },
+    body: JSON.stringify({
+      name: nameGerbil,
+      age: ageGerbil,
+      yearsServed: servedYears,
+    }),
+  }) //fetch ends
+  .then(function (response) {
+    return response.json();
+  })
+  .then((newGerbil) => {
+    renderGerbils(newGerbil)
+  })
+}
 
 const recruitForm = document.getElementById("recruit-form");
 const getRank = document.querySelector("#gerbilRank");
