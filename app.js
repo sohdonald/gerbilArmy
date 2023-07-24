@@ -116,21 +116,21 @@ recruitForm.addEventListener("submit", function (e) {
   // actually, an if/else statement should do the job
   if (getRank.value === "Private") {
     postGPrivates(
-      newRecruit.gerbilPrivateName,
-      newRecruit.gerbilPrivateAge,
-      newRecruit.gerbilPrivateYears
+      newRecruit.Name,
+      newRecruit.Age,
+      newRecruit.Years
     );
   } else if (getRank.value === "Corporal") {
     postGCorporals(
-      newRecruit.gerbilPrivateName,
-      newRecruit.gerbilPrivateAge,
-      newRecruit.gerbilPrivateYears
+      newRecruit.Name,
+      newRecruit.Age,
+      newRecruit.Years
     );
   } else {
     postGSergents(
-      newRecruit.gerbilPrivateName,
-      newRecruit.gerbilPrivateAge,
-      newRecruit.gerbilPrivateYears
+      newRecruit.Name,
+      newRecruit.Age,
+      newRecruit.Years
     );
   }
 }); // addEventListener ends here()

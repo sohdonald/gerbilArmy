@@ -91,6 +91,12 @@
       "age": "5",
       "yearsServed": "3",
       "id": 3
+    },
+    {
+      "name": "Nutsoup",
+      "age": "4",
+      "yearsServed": "2",
+      "id": 4
     }
   ],
   "gerbilSergents": [
