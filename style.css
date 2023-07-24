@@ -14,12 +14,23 @@
 #gerbilPic {
   height: 10rem;
   width: auto;
-  float: right;
-  margin: 5rem;
+  /* float: right; */
+  /* margin: 5rem; */
 }
 
 #gerbilIdCard {
+  background-color: whitesmoke; 
   border: grey solid 1px;
   padding:1rem;
-  display:inline-grid;
+  height: 20rem;
+  width: 60rem;
+  /* display:inline-grid; */
+}
+
+#gerbilIdCard p {
+  display: inline;
+}
+
+body {
+  background-color: rgb(124, 201, 124);
 }
