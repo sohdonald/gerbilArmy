@@ -85,6 +85,12 @@
       "yearsServed": 4,
       "picture": "./gerbilPics/CorImg/sprinter.svg",
       "id": 2
+    },
+    {
+      "name": "Mac Daddy",
+      "age": "5",
+      "yearsServed": "3",
+      "id": 3
     }
   ],
   "gerbilSergents": [

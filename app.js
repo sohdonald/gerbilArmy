@@ -58,71 +58,30 @@ function renderGerbils(html, element) {
 }
 
 function postGPrivates(privateName, privateAge, privateYears) {
-  fetch("http://localhost:3000/gerbilPrivates/", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      Accept: "application/json",
-    },
-    //.stringify transforms the object into strings
-    // converts a JavaScript value to a JSON string
-    body: JSON.stringify({
-      name: privateName,
-      age: privateAge,
-      yearsServed: privateYears,
-    }),
-  }) //this ends the fetch
-    .then(function (response) {
-      return response.json();
-    }) //first .then ends here
-    // second .then is important
-    .then((newPrivate) => {
-      gerbilPNames(newPrivate);
-    }); // the second .then ends here
+  addRecruit(
+    "http://localhost:3000/gerbilPrivates/",
+    privateName,
+    privateAge,
+    privateYears
+  ); // addRecruit ends
 } // postGPrivates ends
 
 function postGCorporals(corporalName, corporalAge, corporalYears) {
-  fetch("http://localhost:3000/gerbilCorporals/", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      Accept: "application/json",
-    },
-    body: JSON.stringify({
-      name: corporalName,
-      age: corporalAge,
-      yearsServed: corporalYears,
-    }),
-  }) //this ends the fetch
-    .then(function (response) {
-      return response.json();
-    }) //first .then ends here
-    // second .then is important
-    .then((newCorporal) => {
-      gerbilCNames(newCorporal);
-    }); // the second .then ends here
+  addRecruit(
+    "http://localhost:3000/gerbilCorporals/",
+    corporalName,
+    corporalAge,
+    corporalYears
+  ); // addRecruit ends
 } //function postGCorporals ends here
 
 function postGSergents(sergentName, sergentAge, sergentYears) {
-  fetch("http://localhost:3000/gerbilSergents/", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      Accept: "application/json",
-    },
-    body: JSON.stringify({
-      name: sergentName,
-      age: sergentAge,
-      yearsServed: sergentYears,
-    }),
-  }) //this ends the fetch
-    .then(function (response) {
-      return response.json();
-    }) //first .then ends here
-    // second .then is important
-    .then((newSergent) => {
-      gerbilSNames(newSergent);
-    }); // the second .then ends here
+  addRecruit(
+    "http://localhost:3000/gerbilSergents/",
+    sergentName,
+    sergentAge,
+    sergentYears
+  ); // addRecruit ends
 } //function postGCorporals ends here
 
 function addRecruit(url, nameGerbil, ageGerbil, servedYears) {
@@ -138,12 +97,12 @@ function addRecruit(url, nameGerbil, ageGerbil, servedYears) {
       yearsServed: servedYears,
     }),
   }) //fetch ends
-  .then(function (response) {
-    return response.json();
-  })
-  .then((newGerbil) => {
-    renderGerbils(newGerbil)
-  })
+    .then(function (response) {
+      return response.json();
+    })
+    .then((newGerbil) => {
+      renderGerbils(newGerbil);
+    });
 }
 
 const recruitForm = document.getElementById("recruit-form");
