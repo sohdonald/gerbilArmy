@@ -12,7 +12,14 @@
 }
 
 #gerbilPic {
-  height: 6rem;
+  height: 10rem;
   width: auto;
   float: right;
+  margin: 5rem;
+}
+
+#gerbilIdCard {
+  border: grey solid 1px;
+  padding:1rem;
+  display:inline-grid;
 }
