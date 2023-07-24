@@ -57,33 +57,6 @@ function renderGerbils(html, element) {
   });
 }
 
-function postGPrivates(privateName, privateAge, privateYears) {
-  addRecruit(
-    "http://localhost:3000/gerbilPrivates/",
-    privateName,
-    privateAge,
-    privateYears
-  ); // addRecruit ends
-} // postGPrivates ends
-
-function postGCorporals(corporalName, corporalAge, corporalYears) {
-  addRecruit(
-    "http://localhost:3000/gerbilCorporals/",
-    corporalName,
-    corporalAge,
-    corporalYears
-  ); // addRecruit ends
-} //function postGCorporals ends here
-
-function postGSergents(sergentName, sergentAge, sergentYears) {
-  addRecruit(
-    "http://localhost:3000/gerbilSergents/",
-    sergentName,
-    sergentAge,
-    sergentYears
-  ); // addRecruit ends
-} //function postGCorporals ends here
-
 function addRecruit(url, nameGerbil, ageGerbil, servedYears) {
   fetch(url, {
     method: "POST",
@@ -115,23 +88,23 @@ recruitForm.addEventListener("submit", function (e) {
   //console.log(FormData(e.target));
   // actually, an if/else statement should do the job
   if (getRank.value === "Private") {
-    postGPrivates(
-      newRecruit.Name,
-      newRecruit.Age,
-      newRecruit.Years
-    );
+    addRecruit("http://localhost:3000/gerbilPrivates/",
+    newRecruit.Name,
+    newRecruit.Age,
+    newRecruit.Years
+    )
   } else if (getRank.value === "Corporal") {
-    postGCorporals(
-      newRecruit.Name,
-      newRecruit.Age,
-      newRecruit.Years
-    );
+    addRecruit("http://localhost:3000/gerbilCorporals/",
+    newRecruit.Name,
+    newRecruit.Age,
+    newRecruit.Years
+    )
   } else {
-    postGSergents(
-      newRecruit.Name,
-      newRecruit.Age,
-      newRecruit.Years
-    );
+    addRecruit("http://localhost:3000/gerbilSergents/",
+     newRecruit.Name,
+     newRecruit.Age,
+     newRecruit.Years
+     ); // addRecruit ends
   }
 }); // addEventListener ends here()
 

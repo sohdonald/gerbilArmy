@@ -141,6 +141,12 @@
       "picture": "./gerbilPics/PrivImg/littlePrit.svg",
       "yearsServed": "2",
       "id": 5
+    },
+    {
+      "name": "Miyagi",
+      "age": "10",
+      "yearsServed": "7",
+      "id": 6
     }
   ]
 }
