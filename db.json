@@ -62,6 +62,13 @@
       "picture": "./gerbilPics/PrivImg/pincHippo.svg",
       "yearsServed": "3",
       "id": 8
+    },
+    {
+      "name": "tester",
+      "age": "",
+      "picture": "",
+      "yearsServed": "",
+      "id": 9
     }
   ],
   "gerbilCorporals": [
@@ -89,14 +96,23 @@
     {
       "name": "Mac Daddy",
       "age": "5",
+      "picture": "./gerbilPics/PrivImg/cheesWheel.svg",
       "yearsServed": "3",
       "id": 3
     },
     {
       "name": "Nutsoup",
       "age": "4",
+      "picture": "./gerbilPics/PrivImg/chillBlue.svg",
       "yearsServed": "2",
       "id": 4
+    },
+    {
+      "name": "Sauce",
+      "age": "8",
+      "picture": "./gerbilPics/PrivImg/goaty.svg",
+      "yearsServed": "4",
+      "id": 5
     }
   ],
   "gerbilSergents": [
@@ -145,8 +161,16 @@
     {
       "name": "Miyagi",
       "age": "10",
+      "picture": "./gerbilPics/PrivImg/xmasTree.svg",
       "yearsServed": "7",
       "id": 6
+    },
+    {
+      "name": "Debugman",
+      "age": "",
+      "picture": "",
+      "yearsServed": "",
+      "id": 7
     }
   ]
 }

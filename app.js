@@ -58,7 +58,7 @@ function renderGerbils(html, element) {
   });
 }
 
-function addRecruit(url, nameGerbil, ageGerbil, imgGerbil, servedYears) {
+function addRecruit(url, rank, nameGerbil, ageGerbil, imgGerbil, servedYears) {
   fetch(url, {
     method: "POST",
     headers: {
@@ -76,7 +76,20 @@ function addRecruit(url, nameGerbil, ageGerbil, imgGerbil, servedYears) {
       return response.json();
     })
     .then((newGerbil) => {
-      renderGerbils(newGerbil);
+      // which element is passed to renderGerbils?
+      // html element ol showGerbilPrivates, showGerbilCorporals...
+      // use url to display new gerbil to the right rank list
+      // if (rank is private) {showGerbilPrivates}
+      // if (rank === "Private") {showGerbilPrivates}
+      // need conditional
+      if (rank === "Private") {
+        renderGerbils(showGerbilPrivates, newGerbil)
+      } else if (rank === "Corporal") {
+        renderGerbils(showGerbilCorporals, newGerbil)
+      } else {
+        renderGerbils(showGerbilSergents, newGerbil)
+      }
+      
     });
 }
 
@@ -92,14 +105,16 @@ recruitForm.addEventListener("submit", function (e) {
   if (getRank.value === "Private") {
     addRecruit(
       "http://localhost:3000/gerbilPrivates/",
+      "Private",
       newRecruit.Name,
       newRecruit.Age,
       newRecruit.Picture,
-      newRecruit.Years
+      newRecruit.Years,
     );
   } else if (getRank.value === "Corporal") {
     addRecruit(
       "http://localhost:3000/gerbilCorporals/",
+      "Corporal",
       newRecruit.Name,
       newRecruit.Age,
       newRecruit.Picture,
@@ -108,6 +123,7 @@ recruitForm.addEventListener("submit", function (e) {
   } else {
     addRecruit(
       "http://localhost:3000/gerbilSergents/",
+      "Sergent",
       newRecruit.Name,
       newRecruit.Age,
       newRecruit.Picture,
